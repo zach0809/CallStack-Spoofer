@@ -103,8 +103,8 @@ namespace CallSpoofer
 			shell_code_generator_type p_shellcode{};
 
 			static size_t count{};
-			static p_shell_code_generator_type orig_generator[MAX_FUNC_BUFFERED]{};
-			static p_shell_code_generator_type alloc_generator[MAX_FUNC_BUFFERED]{};
+			static shell_code_generator_type orig_generator[MAX_FUNC_BUFFERED]{};
+			static shell_code_generator_type alloc_generator[MAX_FUNC_BUFFERED]{};
 
 			unsigned index{};
 			while (orig_generator[index])
@@ -119,7 +119,7 @@ namespace CallSpoofer
 
 			if (!p_shellcode)
 			{
-				p_shellcode = reinterpret_cast<p_shell_code_generator_type>( LocateShellCode(self_addr));
+				p_shellcode = reinterpret_cast<shell_code_generator_type>( LocateShellCode(self_addr));
 				orig_generator[count] = self_addr;
 				alloc_generator[count] = p_shellcode;
 				count++;
