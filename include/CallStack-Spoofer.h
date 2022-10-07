@@ -100,7 +100,7 @@ namespace CallSpoofer
 			using shell_code_generator_type = decltype(&ShellCodeGenerator<RetType, Func*, Args...>);
 			PVOID self_addr = static_cast<PVOID>(&ShellCodeGenerator<RetType, Func*, Args&&...>);
 
-			p_shell_code_generator_type p_shellcode{};
+			shell_code_generator_type p_shellcode{};
 
 			static size_t count{};
 			static p_shell_code_generator_type orig_generator[MAX_FUNC_BUFFERED]{};
